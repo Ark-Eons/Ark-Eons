@@ -90,3 +90,42 @@ footer {
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0,0,0,0.5);
 }
+
+#slideshow {
+    text-align: center;
+    margin: 1rem 0;
+    position: relative;
+}
+
+#slide {
+    max-width: 70%;
+    height: auto;
+    cursor: pointer;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+
+button#prev, button#next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0,0,0,0.5);
+    color: white;
+    border: none;
+    padding: 1rem;
+    cursor: pointer;
+    font-size: 2rem;
+    border-radius: 50%;
+}
+
+button#prev {
+    left: 10px;
+}
+
+button#next {
+    right: 10px;
+}
+
+button#prev:hover, button#next:hover {
+    background-color: rgba(0,0,0,0.8);
+}
