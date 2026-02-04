@@ -17,26 +17,45 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 // Diaporama pour les races
-let currentSlide = 1;
-const totalSlides = 4; // Nombre total d'images de races
+let currentSlideRaces = 1;
+const totalSlidesRaces = 5;
 
-function showSlide() {
-    document.getElementById('slide').src = `race${currentSlide}.jpg`;
-    document.getElementById('slide').alt = `Race ${currentSlide}`;
+// Diaporama pour les classes
+let currentSlideClasses = 1;
+const totalSlidesClasses = 8;
+
+function showSlide(type) {
+    if (type === 'races') {
+        document.getElementById('slide-races').src = `race${currentSlideRaces}.jpg`;
+        document.getElementById('slide-races').alt = `Race ${currentSlideRaces}`;
+    } else if (type === 'classes') {
+        document.getElementById('slide-classes').src = `class${currentSlideClasses}.jpg`;
+        document.getElementById('slide-classes').alt = `Classe ${currentSlideClasses}`;
+    }
 }
 
-function nextSlide() {
-    currentSlide = (currentSlide % totalSlides) + 1;
-    showSlide();
+function nextSlide(type) {
+    if (type === 'races') {
+        currentSlideRaces = (currentSlideRaces % totalSlidesRaces) + 1;
+    } else if (type === 'classes') {
+        currentSlideClasses = (currentSlideClasses % totalSlidesClasses) + 1;
+    }
+    showSlide(type);
 }
 
-function prevSlide() {
-    currentSlide = currentSlide === 1 ? totalSlides : currentSlide - 1;
-    showSlide();
+function prevSlide(type) {
+    if (type === 'races') {
+        currentSlideRaces = currentSlideRaces === 1 ? totalSlidesRaces : currentSlideRaces - 1;
+    } else if (type === 'classes') {
+        currentSlideClasses = currentSlideClasses === 1 ? totalSlidesClasses : currentSlideClasses - 1;
+    }
+    showSlide(type);
 }
 
-// Démarrer le diaporama automatique
-setInterval(nextSlide, 5000); // Change toutes les 5 secondes
+// Démarrer les diaporamas automatiques
+setInterval(() => nextSlide('races'), 5000);
+setInterval(() => nextSlide('classes'), 5000);
 
 // Initialiser
-showSlide();
+showSlide('races');
+showSlide('classes');
