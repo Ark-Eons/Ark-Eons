@@ -78,26 +78,13 @@ footer {
     border-top: 2px solid #0f3460;
 }
 
-#slideshow {
-    text-align: center;
-    margin: 1rem 0;
-}
-
-#slide {
-    max-width: 100%;
-    height: auto;
-    cursor: pointer;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.5);
-}
-
-#slideshow {
+#slideshow-races, #slideshow-classes {
     text-align: center;
     margin: 1rem 0;
     position: relative;
 }
 
-#slide {
+#slide-races, #slide-classes {
     max-width: 70%;
     height: auto;
     cursor: pointer;
@@ -105,7 +92,7 @@ footer {
     box-shadow: 0 0 10px rgba(0,0,0,0.5);
 }
 
-button#prev, button#next {
+button#prev-races, button#next-races, button#prev-classes, button#next-classes {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
@@ -118,14 +105,14 @@ button#prev, button#next {
     border-radius: 50%;
 }
 
-button#prev {
+button#prev-races, button#prev-classes {
     left: 10px;
 }
 
-button#next {
+button#next-races, button#next-classes {
     right: 10px;
 }
 
-button#prev:hover, button#next:hover {
+button#prev-races:hover, button#next-races:hover, button#prev-classes:hover, button#next-classes:hover {
     background-color: rgba(0,0,0,0.8);
 }
