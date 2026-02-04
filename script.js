@@ -15,3 +15,13 @@ document.addEventListener('DOMContentLoaded', function() {
         console.log('Serveur chargé');
     }, 1000);
 });
+
+// Diaporama pour les races
+let currentSlide = 1;
+const totalSlides = 3; // Changez selon le nombre d'images
+
+function nextSlide() {
+    currentSlide = (currentSlide % totalSlides) + 1;
+    document.getElementById('slide').src = `race${currentSlide}.jpg`;
+    document.getElementById('slide').alt = `Race ${currentSlide}`;
+}
