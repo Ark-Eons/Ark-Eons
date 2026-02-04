@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Races et Classes - Ark’Eons</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <button id="menu-toggle" onclick="toggleMenu()">☰</button>
+        <img src="logo.png" alt="Logo Ark’Eons" style="max-width: 200px; height: auto; display: block; margin: 0 auto 1rem;">
+        <h1>Races et Classes</h1>
+        <nav id="menu" style="display: none;">
+            <ul>
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="races-classes.html">Races et Classes</a></li>
+                <li><a href="boutique.html">Boutique</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <main>
+        <section id="races">
+            <img src="races.png" alt="Races" style="max-width: 300px; display: block; margin: 0 auto 1rem;">
+            <div id="slideshow-races">
+                <button id="prev-races" onclick="prevSlide('races')">&#10094;</button>
+                <img id="slide-races" src="race1.jpg" alt="Race 1" onclick="nextSlide('races')">
+                <button id="next-races" onclick="nextSlide('races')">&#10095;</button>
+            </div>
+            <p>Cliquez sur les flèches ou l'image pour naviguer. Diaporama automatique toutes les 15 secondes.</p>
+        </section>
+
+        <section id="classes">
+            <img src="classes.png" alt="Classes" style="max-width: 300px; display: block; margin: 0 auto 1rem;">
+            <div id="slideshow-classes">
+                <button id="prev-classes" onclick="prevSlide('classes')">&#10094;</button>
+                <img id="slide-classes" src="class1.jpg" alt="Classe 1" onclick="nextSlide('classes')">
+                <button id="next-classes" onclick="nextSlide('classes')">&#10095;</button>
+            </div>
+            <p>Cliquez sur les flèches ou l'image pour naviguer. Diaporama automatique toutes les 15 secondes.</p>
+        </section>
+    </main>
+    
+    <footer>
+        <p>&copy; 2026 Serveur Ark’Eons. Tous droits réservés.</p>
+    </footer>
+    
+    <script src="script.js"></script>
+</body>
+</html>
