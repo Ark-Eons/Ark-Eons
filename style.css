@@ -133,10 +133,13 @@ button#prev-races:hover, button#next-races:hover, button#prev-classes:hover, but
     top: 50px;
     left: 10px;
     background-color: rgba(15, 52, 96, 0.9);
-    padding: 1rem;
+    padding: 1.5rem;  /* Augmenté de 1rem à 1.5rem */
     border-radius: 5px;
 }
 
+#menu a {
+    font-size: 1.2rem;  /* Ajouté pour agrandir le texte */
+}
 #menu ul {
     list-style: none;
     padding: 0;
