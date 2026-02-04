@@ -59,3 +59,8 @@ setInterval(() => nextSlide('classes'), 20000);
 // Initialiser
 showSlide('races');
 showSlide('classes');
+
+function toggleMenu() {
+    const menu = document.getElementById('menu');
+    menu.style.display = menu.style.display === 'none' ? 'block' : 'none';
+}
