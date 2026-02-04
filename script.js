@@ -18,10 +18,25 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // Diaporama pour les races
 let currentSlide = 1;
-const totalSlides = 3; // Changez selon le nombre d'images
+const totalSlides = 4; // Nombre total d'images de races
 
-function nextSlide() {
-    currentSlide = (currentSlide % totalSlides) + 1;
+function showSlide() {
     document.getElementById('slide').src = `race${currentSlide}.jpg`;
     document.getElementById('slide').alt = `Race ${currentSlide}`;
 }
+
+function nextSlide() {
+    currentSlide = (currentSlide % totalSlides) + 1;
+    showSlide();
+}
+
+function prevSlide() {
+    currentSlide = currentSlide === 1 ? totalSlides : currentSlide - 1;
+    showSlide();
+}
+
+// Démarrer le diaporama automatique
+setInterval(nextSlide, 5000); // Change toutes les 5 secondes
+
+// Initialiser
+showSlide();
