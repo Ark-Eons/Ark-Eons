@@ -130,7 +130,7 @@ button#prev-races:hover, button#next-races:hover, button#prev-classes:hover, but
 
 #menu {
     position: absolute;
-    top: 50px;
+    top: 70px;
     left: 10px;
     background-color: rgba(15, 52, 96, 0.9);
     padding: 1.5rem;  /* Augmenté de 1rem à 1.5rem */
