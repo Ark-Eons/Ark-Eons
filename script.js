@@ -53,8 +53,8 @@ function prevSlide(type) {
 }
 
 // Démarrer les diaporamas automatiques
-setInterval(() => nextSlide('races'), 15000);
-setInterval(() => nextSlide('classes'), 15000);
+setInterval(() => nextSlide('races'), 20000);
+setInterval(() => nextSlide('classes'), 20000);
 
 // Initialiser
 showSlide('races');
