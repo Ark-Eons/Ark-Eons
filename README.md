@@ -15,6 +15,8 @@ Site web officiel du serveur Hytale Ark’Eons.
 - Remplacez "votre-ip-serveur:port" par l'adresse réelle.
 - Modifiez les couleurs dans `style.css` pour s'adapter à votre thème.
 - Ajoutez des images ou des vidéos pour plus d'immersion.
+- Téléchargez vos images : classes-races.png, race1.jpg, race2.jpg, etc.
+- Ajustez totalSlides dans script.js selon le nombre de races.
 
 ## Technologies utilisées
 
