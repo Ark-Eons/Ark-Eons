@@ -116,3 +116,41 @@ button#next-races, button#next-classes {
 button#prev-races:hover, button#next-races:hover, button#prev-classes:hover, button#next-classes:hover {
     background-color: rgba(0,0,0,0.8);
 }
+
+#menu-toggle {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background: none;
+    border: none;
+    font-size: 2rem;
+    color: white;
+    cursor: pointer;
+}
+
+#menu {
+    position: absolute;
+    top: 50px;
+    left: 10px;
+    background-color: rgba(15, 52, 96, 0.9);
+    padding: 1rem;
+    border-radius: 5px;
+}
+
+#menu ul {
+    list-style: none;
+    padding: 0;
+}
+
+#menu li {
+    margin: 0.5rem 0;
+}
+
+#menu a {
+    color: white;
+    text-decoration: none;
+}
+
+#menu a:hover {
+    text-decoration: underline;
+}
