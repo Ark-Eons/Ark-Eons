@@ -7,12 +7,19 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    
     <header>
+        <button id="menu-toggle" onclick="toggleMenu()">☰</button>
         <img src="logo.png" alt="Logo Ark’Eons" style="max-width: 650px; height: auto; display: block; margin: 0 auto 1rem;">
         <h1>🌌 Ark’Eons — Serveur Hytale Épique & Évolutif</h1>
         <p>Ark’Eons est un serveur Hytale à l’univers entièrement personnalisé, pensé pour offrir une expérience épique, immersive et exigeante, où chaque choix façonne ton destin.</p>
         <p>Plonge dans un monde vivant, riche en mystères et en dangers, où l’aventure, l’exploration et la progression sont au cœur du gameplay. Des terres sauvages aux donjons oubliés, chaque région raconte une histoire et cache des secrets à découvrir.</p>
+        <nav id="menu" style="display: none;">
+            <ul>
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="races-classes.html">Races et Classes</a></li>
+                <li><a href="boutique.html">Boutique</a></li>
+            </ul>
+        </nav>
     </header>
     
     <main>
@@ -26,26 +33,6 @@
                 <li>Évolutions de personnage débloquant de nouvelles capacités</li>
             </ul>
             <p>Les équipements suivent un système de tiers évolutifs, où la puissance des objets reflète ton parcours, tes victoires et tes choix stratégiques.</p>
-        </section>
-        
-        <section id="races">
-            <img src="races.png" alt="Races" style="max-width: 420px; display: block; margin: 0 auto 1rem;">
-            <div id="slideshow-races">
-                <button id="prev-races" onclick="prevSlide('races')">&#10094;</button>
-                <img id="slide-races" src="race1.jpg" alt="Race 1" onclick="nextSlide('races')">
-                <button id="next-races" onclick="nextSlide('races')">&#10095;</button>
-            </div>
-            
-        </section>
-
-        <section id="classes">
-            <img src="classes.png" alt="Classes" style="max-width: 420px; display: block; margin: 0 auto 1rem;">
-            <div id="slideshow-classes">
-                <button id="prev-classes" onclick="prevSlide('classes')">&#10094;</button>
-                <img id="slide-classes" src="class1.jpg" alt="Classe 1" onclick="nextSlide('classes')">
-                <button id="next-classes" onclick="nextSlide('classes')">&#10095;</button>
-            </div>
-           
         </section>
         
         <section id="pve">
@@ -69,8 +56,8 @@
         
         <section id="join">
             <h2>Rejoindre le Serveur</h2>
-            <p>Discord : https://discord.gg/hgcFN5hf3p</p>
-            <button onclick="copyIP()">Copier l'adresse</button>
+            <p>Adresse IP : votre-ip-serveur:port</p>
+            <button onclick="copyIP()">Copier l'IP</button>
         </section>
     </main>
     
