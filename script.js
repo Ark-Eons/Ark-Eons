@@ -1,6 +1,6 @@
 // Fonction pour copier l'IP dans le presse-papiers
 function copyIP() {
-    const ip = 'votre-ip-serveur:port';
+    const ip = 'https://discord.gg/hgcFN5hf3p';
     navigator.clipboard.writeText(ip).then(() => {
         alert('IP copiée dans le presse-papiers !');
     });
