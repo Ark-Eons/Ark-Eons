@@ -109,25 +109,25 @@ footer {
 
 /* Menu Container */
 #menu {
-    position: absolute;
-    top: 90px;
-    left: 10px;
+    position: fixed;
+    top: 120px;
+    left: 20px;
     width: 260px;
-    background: linear-gradient(180deg, rgba(15,52,96,0.98), rgba(8,25,60,0.95));
-    padding: 1.25rem;
+    background: rgba(15, 52, 96, 0.95);
+    padding: 1.5rem;
+    border: 2px solid #e94560;
     border-radius: 12px;
-    box-shadow: 0 12px 30px rgba(0,0,0,0.6);
-    transform-origin: top left;
-    transform: translateY(-10px) scale(.98);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.8);
     opacity: 0;
-    transition: opacity .22s ease, transform .22s ease;
+    visibility: hidden;
+    transition: opacity .22s ease, visibility .22s ease;
     z-index: 1000;
     pointer-events: none;
 }
 
 #menu.show {
-    transform: translateY(0) scale(1);
     opacity: 1;
+    visibility: visible;
     pointer-events: auto;
 }
 
@@ -139,25 +139,22 @@ footer {
 }
 
 #menu li {
-    margin: 0.35rem 0;
+    margin: 0.8rem 0;
 }
 
 /* Menu Links */
 #menu a {
-    display: flex;
-    align-items: center;
-    gap: .6rem;
-    padding: .4rem .5rem;
-    color: #fff;
+    display: block;
+    padding: 0.75rem 1rem;
+    color: #ffffff;
     text-decoration: none;
-    font-size: 1.15rem;
+    font-size: 1.2rem;
     border-radius: 8px;
-    transition: background .15s ease, transform .08s ease;
+    transition: background .15s ease;
 }
 
 #menu a:hover, #menu a:focus {
-    background: rgba(255,255,255,0.04);
-    transform: translateX(4px);
+    background: rgba(233, 69, 96, 0.3);
     outline: none;
 }
 
