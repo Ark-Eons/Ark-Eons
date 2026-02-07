@@ -1,20 +1,58 @@
-// Fonction pour copier l'IP dans le presse-papiers
-function copyIP() {
-    const ip = 'https://discord.gg/hgcFN5hf3p';
-    navigator.clipboard.writeText(ip).then(() => {
-        alert('adresse copiée dans le presse-papiers !');
-    });
+// Toggle Menu avec overlay
+function toggleMenu() {
+  const menu = document.getElementById('menu');
+  const overlay = document.getElementById('menu-overlay');
+  const toggle = document.getElementById('menu-toggle');
+  const willShow = !menu.classList.contains('show');
+
+  menu.classList.toggle('show', willShow);
+  overlay.classList.toggle('show', willShow);
+  menu.setAttribute('aria-hidden', String(!willShow));
+  toggle.setAttribute('aria-expanded', String(willShow));
+
+  if (willShow) {
+    // Focus sur le premier lien
+    const firstLink = menu.querySelector('a');
+    firstLink && firstLink.focus();
+    // Écouter Échap pour fermer
+    document.addEventListener('keydown', escClose);
+  } else {
+    document.removeEventListener('keydown', escClose);
+    toggle.focus();
+  }
 }
 
-// Simulation de statut du serveur (remplacez par une vraie API si disponible)
-document.addEventListener('DOMContentLoaded', function() {
-    // Ici, vous pourriez faire un appel API pour obtenir le vrai statut
-    // Par exemple : fetch('https://api.hytale-servers.com/status/ark-eons')
-    setTimeout(() => {
-        // Ajouter un élément de statut si nécessaire
-        console.log('Serveur chargé');
-    }, 1000);
+function escClose(e) {
+  if (e.key === 'Escape') {
+    const menu = document.getElementById('menu');
+    if (menu.classList.contains('show')) toggleMenu();
+  }
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  const toggle = document.getElementById('menu-toggle');
+  const overlay = document.getElementById('menu-overlay');
+
+  if (toggle) {
+    toggle.addEventListener('click', toggleMenu);
+    toggle.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        toggleMenu();
+      }
+    });
+  }
+
+  if (overlay) overlay.addEventListener('click', () => toggleMenu());
 });
+
+// Fonction pour copier l'IP dans le presse-papiers
+function copyIP() {
+    const ip = 'votre-ip-serveur:port';
+    navigator.clipboard.writeText(ip).then(() => {
+        alert('IP copiée dans le presse-papiers !');
+    });
+}
 
 // Diaporama pour les races
 let currentSlideRaces = 1;
@@ -53,56 +91,9 @@ function prevSlide(type) {
 }
 
 // Démarrer les diaporamas automatiques
-setInterval(() => nextSlide('races'), 20000);
-setInterval(() => nextSlide('classes'), 20000);
+setInterval(() => nextSlide('races'), 15000);
+setInterval(() => nextSlide('classes'), 15000);
 
 // Initialiser
 showSlide('races');
 showSlide('classes');
-
-function toggleMenu() {
-  const menu = document.getElementById('menu');
-  const overlay = document.getElementById('menu-overlay');
-  const toggle = document.getElementById('menu-toggle');
-  const willShow = !menu.classList.contains('show');
-
-  menu.classList.toggle('show', willShow);
-  overlay.classList.toggle('show', willShow);
-  menu.setAttribute('aria-hidden', String(!willShow));
-  toggle.setAttribute('aria-expanded', String(willShow));
-
-  if (willShow) {
-    // focus sur premier lien
-    const firstLink = menu.querySelector('a');
-    firstLink && firstLink.focus();
-    // trap simple: close on ESC
-    document.addEventListener('keydown', escClose);
-  } else {
-    document.removeEventListener('keydown', escClose);
-    toggle.focus();
-  }
-}
-
-function escClose(e) {
-  if (e.key === 'Escape') {
-    const menu = document.getElementById('menu');
-    if (menu.classList.contains('show')) toggleMenu();
-  }
-}
-
-document.addEventListener('DOMContentLoaded', () => {
-  const toggle = document.getElementById('menu-toggle');
-  const overlay = document.getElementById('menu-overlay');
-
-  if (toggle) {
-    toggle.addEventListener('click', toggleMenu);
-    toggle.addEventListener('keydown', (e) => {
-      if (e.key === 'Enter' || e.key === ' ') {
-        e.preventDefault();
-        toggleMenu();
-      }
-    });
-  }
-
-  if (overlay) overlay.addEventListener('click', () => toggleMenu());
-});
