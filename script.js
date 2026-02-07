@@ -1,3 +1,9 @@
+alert('Script loaded!');
+
+// Toggle Menu avec overlay
+function toggleMenu() {
+  // ... reste du code
+
 // Toggle Menu avec overlay
 function toggleMenu() {
   const menu = document.getElementById('menu');
