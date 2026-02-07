@@ -3,55 +3,45 @@ function toggleMenu() {
   const menu = document.getElementById('menu');
   const overlay = document.getElementById('menu-overlay');
   const toggle = document.getElementById('menu-toggle');
-  const willShow = !menu.classList.contains('show');
-
-  menu.classList.toggle('show', willShow);
-  overlay.classList.toggle('show', willShow);
-  menu.setAttribute('aria-hidden', String(!willShow));
-  toggle.setAttribute('aria-expanded', String(willShow));
-
-  if (willShow) {
-    // Focus sur le premier lien
-    const firstLink = menu.querySelector('a');
-    firstLink && firstLink.focus();
-    // Écouter Échap pour fermer
-    document.addEventListener('keydown', escClose);
-  } else {
-    document.removeEventListener('keydown', escClose);
-    toggle.focus();
+  
+  if (!menu) {
+    console.error('Menu element not found');
+    return;
   }
-}
-
-function escClose(e) {
-  if (e.key === 'Escape') {
-    const menu = document.getElementById('menu');
-    if (menu.classList.contains('show')) toggleMenu();
-  }
+  
+  menu.classList.toggle('show');
+  overlay.classList.toggle('show');
+  
+  console.log('Menu classes:', menu.className);
+  console.log('Menu visible:', menu.classList.contains('show'));
 }
 
 document.addEventListener('DOMContentLoaded', () => {
   const toggle = document.getElementById('menu-toggle');
-  const overlay = document.getElementById('menu-overlay');
+  const menu = document.getElementById('menu');
+  
+  console.log('Page loaded - Toggle:', toggle ? 'found' : 'NOT FOUND');
+  console.log('Page loaded - Menu:', menu ? 'found' : 'NOT FOUND');
 
   if (toggle) {
-    // Retire onclick du HTML et gère en JS seulement
-    toggle.onclick = null;
     toggle.addEventListener('click', (e) => {
+      e.preventDefault();
       e.stopPropagation();
+      console.log('Button clicked');
       toggleMenu();
-    });
-    toggle.addEventListener('keydown', (e) => {
-      if (e.key === 'Enter' || e.key === ' ') {
-        e.preventDefault();
-        toggleMenu();
-      }
     });
   }
 
-  if (overlay) overlay.addEventListener('click', () => toggleMenu());
+  const overlay = document.getElementById('menu-overlay');
+  if (overlay) {
+    overlay.addEventListener('click', () => {
+      console.log('Overlay clicked');
+      toggleMenu();
+    });
+  }
 });
 
-// Reste du code (copyIP, diaporamas, etc.)
+// Reste du code...
 function copyIP() {
     const ip = 'votre-ip-serveur:port';
     navigator.clipboard.writeText(ip).then(() => {
@@ -66,11 +56,17 @@ const totalSlidesClasses = 8;
 
 function showSlide(type) {
     if (type === 'races') {
-        document.getElementById('slide-races').src = `race${currentSlideRaces}.jpg`;
-        document.getElementById('slide-races').alt = `Race ${currentSlideRaces}`;
+        const slideRaces = document.getElementById('slide-races');
+        if (slideRaces) {
+            slideRaces.src = `race${currentSlideRaces}.jpg`;
+            slideRaces.alt = `Race ${currentSlideRaces}`;
+        }
     } else if (type === 'classes') {
-        document.getElementById('slide-classes').src = `class${currentSlideClasses}.jpg`;
-        document.getElementById('slide-classes').alt = `Classe ${currentSlideClasses}`;
+        const slideClasses = document.getElementById('slide-classes');
+        if (slideClasses) {
+            slideClasses.src = `class${currentSlideClasses}.jpg`;
+            slideClasses.alt = `Classe ${currentSlideClasses}`;
+        }
     }
 }
 
