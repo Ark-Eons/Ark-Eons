@@ -34,7 +34,12 @@ document.addEventListener('DOMContentLoaded', () => {
   const overlay = document.getElementById('menu-overlay');
 
   if (toggle) {
-    toggle.addEventListener('click', toggleMenu);
+    // Retire onclick du HTML et gère en JS seulement
+    toggle.onclick = null;
+    toggle.addEventListener('click', (e) => {
+      e.stopPropagation();
+      toggleMenu();
+    });
     toggle.addEventListener('keydown', (e) => {
       if (e.key === 'Enter' || e.key === ' ') {
         e.preventDefault();
@@ -46,7 +51,7 @@ document.addEventListener('DOMContentLoaded', () => {
   if (overlay) overlay.addEventListener('click', () => toggleMenu());
 });
 
-// Fonction pour copier l'IP dans le presse-papiers
+// Reste du code (copyIP, diaporamas, etc.)
 function copyIP() {
     const ip = 'votre-ip-serveur:port';
     navigator.clipboard.writeText(ip).then(() => {
@@ -54,11 +59,8 @@ function copyIP() {
     });
 }
 
-// Diaporama pour les races
 let currentSlideRaces = 1;
 const totalSlidesRaces = 5;
-
-// Diaporama pour les classes
 let currentSlideClasses = 1;
 const totalSlidesClasses = 8;
 
