@@ -10,11 +10,12 @@ body {
 }
 
 header {
-    background-color: rgba(22, 33, 62, 0.8); /* Semi-transparent pour voir l'arrière-plan */
+    background-color: rgba(22, 33, 62, 0.8);
     color: #ffffff;
-    text-align: center;
+    text-align: left;
     padding: 2rem;
     border-bottom: 2px solid #0f3460;
+    position: relative;
 }
 
 header h1 {
@@ -25,7 +26,6 @@ header h1 {
 header p {
     font-size: 1.2rem;
     max-width: 800px;
-    margin: 0 auto;
 }
 
 main {
@@ -36,7 +36,7 @@ main {
 
 section {
     margin-bottom: 2rem;
-    background-color: rgba(15, 52, 96, 0.9); /* Semi-transparent */
+    background-color: rgba(15, 52, 96, 0.9);
     padding: 1.5rem;
     border-radius: 10px;
     box-shadow: 0 0 15px rgba(0,0,0,0.5);
@@ -73,11 +73,95 @@ button:hover {
 footer {
     text-align: center;
     padding: 1rem;
-    background-color: rgba(22, 33, 62, 0.8); /* Semi-transparent */
+    background-color: rgba(22, 33, 62, 0.8);
     color: #a0a0a0;
     border-top: 2px solid #0f3460;
 }
 
+/* Menu Button */
+#menu-toggle {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background: none;
+    border: none;
+    font-size: 3rem;
+    color: white;
+    cursor: pointer;
+    z-index: 1100;
+}
+
+/* Overlay sombre */
+#menu-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.45);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity .25s ease, visibility .25s;
+    z-index: 900;
+}
+
+#menu-overlay.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Menu Container */
+#menu {
+    position: absolute;
+    top: 90px;
+    left: 10px;
+    width: 260px;
+    background: linear-gradient(180deg, rgba(15,52,96,0.98), rgba(8,25,60,0.95));
+    padding: 1.25rem;
+    border-radius: 12px;
+    box-shadow: 0 12px 30px rgba(0,0,0,0.6);
+    transform-origin: top left;
+    transform: translateY(-10px) scale(.98);
+    opacity: 0;
+    transition: opacity .22s ease, transform .22s ease;
+    z-index: 1000;
+    pointer-events: none;
+}
+
+#menu.show {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+    pointer-events: auto;
+}
+
+/* Menu List */
+#menu ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+#menu li {
+    margin: 0.35rem 0;
+}
+
+/* Menu Links */
+#menu a {
+    display: flex;
+    align-items: center;
+    gap: .6rem;
+    padding: .4rem .5rem;
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.15rem;
+    border-radius: 8px;
+    transition: background .15s ease, transform .08s ease;
+}
+
+#menu a:hover, #menu a:focus {
+    background: rgba(255,255,255,0.04);
+    transform: translateX(4px);
+    outline: none;
+}
+
+/* Slideshow Styles */
 #slideshow-races, #slideshow-classes {
     text-align: center;
     margin: 1rem 0;
@@ -116,75 +200,3 @@ button#next-races, button#next-classes {
 button#prev-races:hover, button#next-races:hover, button#prev-classes:hover, button#next-classes:hover {
     background-color: rgba(0,0,0,0.8);
 }
-
-/* overlay sombre */
-#menu-overlay {
-  position: fixed;
-  inset: 0;
-  background: rgba(0,0,0,0.45);
-  opacity: 0;
-  visibility: hidden;
-  transition: opacity .25s ease, visibility .25s;
-  z-index: 900;
-}
-
-/* menu container */
-#menu {
-  position: absolute;
-  top: 110px;                 /* ajuster si besoin */
-  left: 10px;
-  width: 260px;               /* largeur du menu */
-  background: linear-gradient(180deg, rgba(15,52,96,0.98), rgba(8,25,60,0.95));
-  padding: 1.25rem;
-  border-radius: 12px;
-  box-shadow: 0 12px 30px rgba(0,0,0,0.6);
-  transform-origin: top left;
-  transform: translateY(-10px) scale(.98);
-  opacity: 0;
-  transition: opacity .22s ease, transform .22s ease;
-  z-index: 1000;
-  pointer-events: none;
-}
-
-/* menu visible */
-#menu.show {
-  transform: translateY(0) scale(1);
-  opacity: 1;
-  pointer-events: auto;
-}
-
-/* overlay visible */
-#menu-overlay.show {
-  opacity: 1;
-  visibility: visible;
-}
-
-/* menu list */
-#menu ul { list-style: none; margin: 0; padding: 0; }
-#menu li { margin: 0.35rem 0; }
-
-/* menu link style (big clickable areas) */
-#menu a {
-  display: flex;
-  align-items: center;
-  gap: .6rem;
-  padding: .4rem .5rem;
-  color: #fff;
-  text-decoration: none;
-  font-size: 1.15rem;
-  border-radius: 8px;
-  transition: background .15s ease, transform .08s ease;
-}
-
-/* hover / focus */
-#menu a:hover, #menu a:focus {
-  background: rgba(255,255,255,0.04);
-  transform: translateX(4px);
-  outline: none;
-}
-
-/* optional icon size if you add icons inside links */
-#menu a img.icon { width: 28px; height: auto; }
-
-/* make sure menu-toggle stays above layout */
-#menu-toggle { z-index: 1100; }
