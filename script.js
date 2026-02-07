@@ -61,6 +61,48 @@ showSlide('races');
 showSlide('classes');
 
 function toggleMenu() {
-    const menu = document.getElementById('menu');
-    menu.style.display = menu.style.display === 'none' ? 'block' : 'none';
+  const menu = document.getElementById('menu');
+  const overlay = document.getElementById('menu-overlay');
+  const toggle = document.getElementById('menu-toggle');
+  const willShow = !menu.classList.contains('show');
+
+  menu.classList.toggle('show', willShow);
+  overlay.classList.toggle('show', willShow);
+  menu.setAttribute('aria-hidden', String(!willShow));
+  toggle.setAttribute('aria-expanded', String(willShow));
+
+  if (willShow) {
+    // focus sur premier lien
+    const firstLink = menu.querySelector('a');
+    firstLink && firstLink.focus();
+    // trap simple: close on ESC
+    document.addEventListener('keydown', escClose);
+  } else {
+    document.removeEventListener('keydown', escClose);
+    toggle.focus();
+  }
 }
+
+function escClose(e) {
+  if (e.key === 'Escape') {
+    const menu = document.getElementById('menu');
+    if (menu.classList.contains('show')) toggleMenu();
+  }
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  const toggle = document.getElementById('menu-toggle');
+  const overlay = document.getElementById('menu-overlay');
+
+  if (toggle) {
+    toggle.addEventListener('click', toggleMenu);
+    toggle.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        toggleMenu();
+      }
+    });
+  }
+
+  if (overlay) overlay.addEventListener('click', () => toggleMenu());
+});
