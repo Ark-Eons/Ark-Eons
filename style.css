@@ -113,22 +113,15 @@ footer {
     top: 120px;
     left: 20px;
     width: 260px;
-    background: rgba(15, 52, 96, 0.95);
+    background: red;  /* Rouge vif pour être visible */
     padding: 1.5rem;
-    border: 2px solid #e94560;
     border-radius: 12px;
-    box-shadow: 0 12px 30px rgba(0,0,0,0.8);
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity .22s ease, visibility .22s ease;
+    display: none;    /* Caché par défaut */
     z-index: 1000;
-    pointer-events: none;
 }
 
 #menu.show {
-    opacity: 1;
-    visibility: visible;
-    pointer-events: auto;
+    display: block;   /* Visible quand .show est appliqué */
 }
 
 /* Menu List */
