@@ -6,14 +6,23 @@ function copyIP() {
     });
 }
 
-// Simulation de statut du serveur (remplacez par une vraie API si disponible)
-document.addEventListener('DOMContentLoaded', function() {
-    // Ici, vous pourriez faire un appel API pour obtenir le vrai statut
-    // Par exemple : fetch('https://api.hytale-servers.com/status/ark-eons')
-    setTimeout(() => {
-        // Ajouter un élément de statut si nécessaire
-        console.log('Serveur chargé');
-    }, 1000);
+// Toggle Menu simple et fiable
+function toggleMenu() {
+    const menu = document.getElementById('menu');
+    if (menu.style.display === 'none' || menu.style.display === '') {
+        menu.style.display = 'block';
+    } else {
+        menu.style.display = 'none';
+    }
+}
+
+// Fermer le menu en cliquant ailleurs
+document.addEventListener('click', function(event) {
+    const menu = document.getElementById('menu');
+    const toggle = document.getElementById('menu-toggle');
+    if (!menu.contains(event.target) && !toggle.contains(event.target)) {
+        menu.style.display = 'none';
+    }
 });
 
 // Diaporama pour les races
@@ -59,8 +68,3 @@ setInterval(() => nextSlide('classes'), 20000);
 // Initialiser
 showSlide('races');
 showSlide('classes');
-
-function toggleMenu() {
-    const menu = document.getElementById('menu');
-    menu.style.display = menu.style.display === 'none' ? 'block' : 'none';
-}
