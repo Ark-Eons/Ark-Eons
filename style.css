@@ -196,3 +196,12 @@ button#prev-races:hover, button#next-races:hover, button#prev-classes:hover, but
     background: rgba(233, 69, 96, 0.3);
     text-decoration: none;
 }
+
+/* Effet zoom au survol du logo */
+img[alt="Logo Ark'Eons"] {
+    transition: transform 0.3s ease;
+}
+
+img[alt="Logo Ark'Eons"]:hover {
+    transform: scale(1.15);
+}
