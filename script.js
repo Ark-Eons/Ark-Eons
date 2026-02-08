@@ -1,3 +1,10 @@
+// Ignorer les erreurs des extensions
+window.addEventListener('error', (e) => {
+  if (e.filename && e.filename.includes('webpage_content_reporter')) {
+    e.preventDefault();
+  }
+});
+
 alert('Script loaded!');
 
 // Toggle Menu avec overlay
